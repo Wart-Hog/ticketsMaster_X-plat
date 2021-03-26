@@ -12,11 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'events',
-    loadChildren: () => import('./events/events.module').then( m => m.EventsPageModule)
+    loadChildren: () => import('./components/events/events.module').then( m => m.EventsPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./components/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'favorites',

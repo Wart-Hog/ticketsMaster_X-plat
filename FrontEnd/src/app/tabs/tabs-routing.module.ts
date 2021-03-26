@@ -9,23 +9,23 @@ const routes: Routes = [
     children: [
       {
         path: 'user',
-        loadChildren: () => import('../user/user.module').then(m => m.UserPageModule)
+        loadChildren: () => import('../components/user/user.module').then(m => m.UserPageModule)
       },
       {
         path: 'events',
-        loadChildren: () => import('../events/events.module').then(m => m.EventsPageModule)
+        loadChildren: () => import('../components/events/events.module').then(m => m.EventsPageModule)
       },
       {
         path: 'home',
-        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('../components/home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'favorites',
-        loadChildren: () => import('../favorites/favorites.module').then(m => m.FavoritesPageModule)
+        loadChildren: () => import('../components/favorites/favorites.module').then(m => m.FavoritesPageModule)
       },
       {
         path: 'tickets',
-        loadChildren: () => import('../tickets/tickets.module').then(m => m.TicketsPageModule)
+        loadChildren: () => import('../components/tickets/tickets.module').then(m => m.TicketsPageModule)
       },
       {
         path: '',
