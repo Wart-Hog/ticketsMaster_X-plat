@@ -22,7 +22,7 @@ var options = {
     ],
     credentials: true,
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-    origin: "http://localhost:4200",
+    origin: "http://localhost:8100",
     preflightContinue: false,
 };
 app.use(cors_1.default(options));

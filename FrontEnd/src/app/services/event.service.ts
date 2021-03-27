@@ -1,36 +1,28 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IEvent } from '../../../../BackEnd/src/Interfaces/IEvent';
 import { ITicket } from '../../../../BackEnd/src/Interfaces/ITicket';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  url = "http://localhost:3005/users"
-  username = sessionStorage.getItem('username')
-  constructor(private httpClient: HttpClient) { }
-  myTickets = ():Promise<ITicket[]> =>{
-    let headers = new HttpHeaders()
-    headers = headers.set('token',sessionStorage.getItem('token') || "")
-    return this.httpClient.get(`${this.url}/${this.username}/tickets`,{headers}).toPromise() as Promise<ITicket[]>
-  } 
+  public url = "http://localhost:3005/events"
 
-  buyTicket = ():Promise<any> => {
+  constructor(private httpClient: HttpClient) {}
+
+  all = (offset: number, limit: number): Promise<IEvent[]> => this.httpClient.get(`${this.url}?offset=${offset}&limit=${limit}`).toPromise() as Promise<IEvent[]>
+  getMusicEvents = (): Promise<IEvent[]> => this.httpClient.get(this.url + "/music").toPromise() as Promise<IEvent[]>
+  getSportEvents = (): Promise<IEvent[]> => this.httpClient.get(this.url + "/sport").toPromise() as Promise<IEvent[]>
+  getTheatreEvents = (): Promise<IEvent[]> => this.httpClient.get(this.url + "/theatre").toPromise() as Promise<IEvent[]>
+  newEvent = (name: string, type: string, place:string , dateTime: string, price: number): Promise<IEvent> =>{
     let headers = new HttpHeaders()
     headers = headers.set('token',sessionStorage.getItem('token') || "")
-    return this.httpClient.post(`${this.url}/${this.username}/tickets`, {eventId: sessionStorage.getItem('ticket') },{headers}).toPromise() as Promise<any>
+    return this.httpClient.post(this.url, {name, type, place, dateTime, price}, {headers}).toPromise() as Promise<IEvent>
   }
-  removeTicket = ():Promise<any> => {
+  deleteEvent = (eventId: string): Promise<any> =>{
     let headers = new HttpHeaders()
     headers = headers.set('token',sessionStorage.getItem('token') || "")
-    let ticketId = sessionStorage.getItem('ticketID')
-    return this.httpClient.delete(`${this.url}/${this.username}/tickets/${ticketId}`,{headers}).toPromise() as Promise<any>
-  }
-  modifyAdmin = (isAdmin: boolean, username: string) : Promise<any> => this.httpClient.put(`${this.url}/${username}`, { admin: isAdmin }).toPromise()as Promise<any>
-  signup = (name: string, username: string, password: string): Promise<any> => this.httpClient.post(this.url, {name, username, password}).toPromise() as Promise<any>
-  modifyUser = (name: string, username: string, password: string): Promise<any> => {
-    let headers = new HttpHeaders()
-    headers = headers.set('token',sessionStorage.getItem('token') || "")
-    return this.httpClient.put(`${this.url}/${this.username}/details`,{name, username, password}, {headers}).toPromise() as Promise<any>
+    return this.httpClient.delete(`${this.url}/${eventId}`, {headers}).toPromise() as Promise<any>
   }
 }

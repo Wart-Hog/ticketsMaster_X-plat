@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content>
-
+  <app-login *ngIf ="!isLogged"></app-login>
+</ion-content>
+<ion-content *ngIf = "isLogged">
+  loggato
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-align-self-center">
+      ciao
+    </ion-col>
+  </ion-row>
+  <button class="nav-link" (click) = 'logout()'> logout</button>
 </ion-content>
