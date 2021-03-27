@@ -11,8 +11,13 @@
   loggato
   <ion-row class="ion-align-items-center">
     <ion-col class="ion-align-self-center">
-      ciao
+      <p></p>
     </ion-col>
   </ion-row>
+  <ion-content *ngIf = "admin">
+    <p>sei admin</p>
+</ion-content>
   <button class="nav-link" (click) = 'logout()'> logout</button>
+
+    
 </ion-content>

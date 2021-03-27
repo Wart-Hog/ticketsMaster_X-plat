@@ -4,6 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content *ngIf = "!isLogged">
+  <p>Loggati per vedere i tuoi biglietti</p>
 </ion-content>
+
+<ion-content *ngIf = "isLogged">
+  <p>{{user.name}}</p>
+  <div *ngFor ="let t of tickets; let i = index">
+    <p>{{t.event.name}}</p>
+    <button class="btn btn-danger btn-sm" (click)='removeTicket(i)'>Rimuovi</button>
+  </div>
+</ion-content>
+

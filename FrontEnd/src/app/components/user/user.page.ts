@@ -42,6 +42,7 @@ export class UserPage implements OnInit {
     }catch(err){
       return err
     }
+    
   }
 
   checkLogged = () =>{
