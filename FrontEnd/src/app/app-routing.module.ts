@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+    loadChildren: () => import('./components/user/user.module').then( m => m.UserPageModule)
   },
   {
     path: 'events',
@@ -20,11 +20,11 @@ const routes: Routes = [
   },
   {
     path: 'favorites',
-    loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+    loadChildren: () => import('./components/favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
   {
     path: 'tickets',
-    loadChildren: () => import('./tickets/tickets.module').then( m => m.TicketsPageModule)
+    loadChildren: () => import('./components/tickets/tickets.module').then( m => m.TicketsPageModule)
   }
 ];
 @NgModule({
