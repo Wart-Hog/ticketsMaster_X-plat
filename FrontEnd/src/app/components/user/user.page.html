@@ -4,11 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <app-login *ngIf ="!isLogged"></app-login>
+<ion-content *ngIf ="!isLogged">
+  <app-login id = "login" ></app-login>
 </ion-content>
 <ion-content *ngIf = "isLogged">
-  loggato
+  <h1>Benvenuto {{username}}</h1>
   <ion-row class="ion-align-items-center">
     <ion-col class="ion-align-self-center">
       <p></p>

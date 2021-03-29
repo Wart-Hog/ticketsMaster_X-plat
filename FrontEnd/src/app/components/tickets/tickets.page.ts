@@ -15,7 +15,7 @@ export class TicketsPage implements OnInit {
   user!:IUser 
   tickets:ITicket[] = []
   username = ""
-  constructor(private loginService: LoginService,private userService: UserService, private eventService:EventService) { }
+  constructor(private loginService: LoginService,private userService: UserService) { }
 
   async ngOnInit() {
     this.checkLogged()

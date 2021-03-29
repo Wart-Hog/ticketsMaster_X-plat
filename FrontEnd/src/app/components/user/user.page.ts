@@ -37,6 +37,7 @@ export class UserPage implements OnInit {
         this.user = await this.loginService.getUser()
         this.tickets = await this.userService.myTickets()
         this.username = this.user.username
+        this.admin = this.user.admin
       }
       
     }catch(err){
