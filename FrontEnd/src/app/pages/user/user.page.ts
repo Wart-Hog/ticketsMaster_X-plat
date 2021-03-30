@@ -28,6 +28,7 @@ export class UserPage implements OnInit {
   errorModifyAdmin = ""
   errorDeleteEvent = ""
   public isLogged = false
+  signUpVisible: boolean
   constructor(private loginService: LoginService,private userService: UserService, private eventService:EventService) { }
 
   async ngOnInit(){
@@ -44,6 +45,11 @@ export class UserPage implements OnInit {
       return err
     }
     
+  }
+
+  signUpBtnStatus(){
+    this.signUpVisible = this.signUpVisible ? false : true
+    console.log(this.signUpVisible);
   }
 
   checkLogged = () =>{

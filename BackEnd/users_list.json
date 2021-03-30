@@ -25,9 +25,20 @@
           "dateTime": "03/07/90",
           "price": 60
         }
+      },
+      {
+        "id": "9ed541e9-97b5-4f50-999c-35979af42adf",
+        "event": {
+          "name": "milan - juve",
+          "id": "54b49edf-3bd5-4af9-8317-7d74a1a8a174",
+          "type": "sport",
+          "place": "milan",
+          "dateTime": "03/07/90",
+          "price": 30
+        }
       }
     ],
-    "token": "UfXxwP85XTeiyXoaaJ3mGN",
+    "token": "MSZrcTZUoDrKxd95q31B6Q",
     "admin": true
   },
   {

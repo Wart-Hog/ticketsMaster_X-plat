@@ -4,9 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf ="!isLogged">
-  <app-login id = "login" ></app-login>
+<ion-content *ngIf ="signUpVisible">
+  <app-sign-up></app-sign-up>
+  <button (click)= "signUpBtnStatus()">Già registrato?</button>
 </ion-content>
+
+<ion-content *ngIf ="!isLogged && !signUpVisible">
+  <app-login id = "login" ></app-login>
+  <button (click)= "signUpBtnStatus()">Oppure registrati</button>
+</ion-content>
+
 <ion-content *ngIf = "isLogged">
   <h1>Benvenuto {{username}}</h1>
   <ion-row class="ion-align-items-center">
@@ -17,7 +24,5 @@
   <ion-content *ngIf = "admin">
     <p>sei admin</p>
 </ion-content>
-  <button class="nav-link" (click) = 'logout()'> logout</button>
-
-    
+  <button class="nav-link" (click) = 'logout()'> logout</button>    
 </ion-content>

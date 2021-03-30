@@ -8,6 +8,7 @@ import { UserPageRoutingModule } from './user-routing.module';
 
 import { UserPage } from './user.page';
 import { LoginModule } from '../../components/login/login.module';
+import { SignUpModule } from 'src/app/components/sign-up/sign-up.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { LoginModule } from '../../components/login/login.module';
     FormsModule,
     IonicModule,
     UserPageRoutingModule,
-    LoginModule
+    LoginModule,
+    SignUpModule
   ],
   declarations: [UserPage]
 })
