@@ -12,18 +12,17 @@ import { EventService } from 'src/app/services/event.service';
 export class UserPage implements OnInit {
   user!:IUser 
   tickets:ITicket[] = []
-  username = ""
   usernameToPromove = ""
   admin = false
   name = ""
   eventName = ""
-  password = ""
+  username = ""
   type = ""
   place = ""
   dateTime =""
   price: any
   eventId = ""
-  errorMessage = ""
+  
   errorEventMessage = ""
   errorModifyAdmin = ""
   errorDeleteEvent = ""
@@ -37,8 +36,8 @@ export class UserPage implements OnInit {
       if(this.isLogged){
         this.user = await this.loginService.getUser()
         this.tickets = await this.userService.myTickets()
-        this.username = this.user.username
         this.admin = this.user.admin
+        this.username = this.user.username
       }
       
     }catch(err){
@@ -102,15 +101,6 @@ export class UserPage implements OnInit {
     let newDate = this.dateTime.split("-")
     this.dateTime =  newDate[2] + "-" + newDate[1] + "-" + newDate[0]
   }
-  async modifyUser() {
-    try{
-      await this.userService.modifyUser(this.name, this.username, this.password)
-      sessionStorage.setItem("username", this.username)
-      window.location.reload()
-    }catch(error: any){
-      this.errorMessage="username già esistente o password invalida"
-      return
-    }
-  }
+  
 
 }

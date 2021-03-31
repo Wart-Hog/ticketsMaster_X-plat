@@ -1,0 +1,50 @@
+.card {
+    margin: 0 auto;
+
+    .header {
+        height: 200px;
+        background-image: url('https://suap.regione.fvg.it/portale/export/sites/SUAP/allegati/archivio_immagini/Sito/trattenimenti_spettacoli.jpg_1639293273.jpg');
+        .avatar {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                border: 8px solid #9Dc912;
+                
+            }
+        }
+    }
+}
+
+.card-body {
+    padding: 30px;
+    height: calc(100vh – (200px + 56px));
+    overflow: hidden;
+    
+    .user-meta {
+        padding-top: 40px;
+
+        .playername {
+            font-size: 24px;
+            font-weight: 600;
+            color: white
+        }
+
+        .country {
+            font-size: 90%;
+            color: white;
+            text-transform: uppercase;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* ion-icon{
+    color: white;
+} */

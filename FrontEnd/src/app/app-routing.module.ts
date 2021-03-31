@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'tickets',
     loadChildren: () => import('./pages/tickets/tickets.module').then( m => m.TicketsPageModule)
+  },
+  {
+    path: 'edit-user',
+    loadChildren: () => import('./pages/edit-user/edit-user.module').then( m => m.EditUserPageModule)
   }
 ];
 @NgModule({

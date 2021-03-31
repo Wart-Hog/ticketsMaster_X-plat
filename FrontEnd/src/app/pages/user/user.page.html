@@ -15,14 +15,39 @@
 </ion-content>
 
 <ion-content *ngIf = "isLogged">
-  <h1>Benvenuto {{username}}</h1>
-  <ion-row class="ion-align-items-center">
-    <ion-col class="ion-align-self-center">
-      <p></p>
-    </ion-col>
-  </ion-row>
-  <ion-content *ngIf = "admin">
-    <p>sei admin</p>
-</ion-content>
-  <button class="nav-link" (click) = 'logout()'> logout</button>    
+
+  <div class="card">
+    <div class="header header-img">
+      <div class="avatar">
+        <img src="https://biografieonline.it/img/bio/p/Pippo_Baudo.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <div class="user-meta ion-text-center">
+      <div class = "row justify-content-center">
+        <ion-row>
+          <h3 class="playername col">{{username}}</h3>
+          <ion-tab-button tab="edit-user" class = "col-1">
+            <ion-icon size = "large" name="pencil"></ion-icon>
+          </ion-tab-button> 
+        </ion-row>
+      </div>
+      
+      <h5 class="country">ciao</h5>
+      <h6 class="ranking">Eventi preferiti: <ion-chip>
+        <ion-label>2</ion-label>
+        </ion-chip>
+      </h6>
+      <h6 class="ranking">I miei biglietti: <ion-chip>
+        <ion-label>2</ion-label>
+        </ion-chip>
+      </h6>
+    </div>
+    <ion-button expand="full" color="primary">http://rogerfederer.com</ion-button>
+    <ion-button expand="full" color="secondary">@RogerFederer on Twitter</ion-button>
+    <ion-button expand="full" color="secondary">View profile at ATP</ion-button>
+  </div>
+  <button class="nav-link" (click) = 'logout()'> logout</button>   
 </ion-content>
