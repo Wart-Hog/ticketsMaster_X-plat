@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IEvent } from '../../../../BackEnd/src/Interfaces/IEvent';
 import { ITicket } from '../../../../BackEnd/src/Interfaces/ITicket';
 
 @Injectable({
@@ -25,6 +26,23 @@ export class UserService {
     headers = headers.set('token',sessionStorage.getItem('token') || "")
     let ticketId = sessionStorage.getItem('ticketID')
     return this.httpClient.delete(`${this.url}/${this.username}/tickets/${ticketId}`,{headers}).toPromise() as Promise<any>
+  }
+  getFavorites = () : Promise<IEvent[]> =>{
+    let headers = new HttpHeaders()
+    headers = headers.set('token',sessionStorage.getItem('token') || "")
+    return this.httpClient.get(`${this.url}/${this.username}/favorites`,{headers}).toPromise() as Promise<IEvent[]>
+  }
+  addFavorite = (): Promise<any> =>{
+    let headers = new HttpHeaders()
+    headers = headers.set('token',sessionStorage.getItem('token') || "")
+    return this.httpClient.post(`${this.url}/${this.username}/favorites`, {eventId: sessionStorage.getItem('favorite') },{headers}).toPromise() as Promise<any>
+  }
+
+  removeFavorite = ():Promise<any> => {
+    let headers = new HttpHeaders()
+    headers = headers.set('token',sessionStorage.getItem('token') || "")
+    let eventId = sessionStorage.getItem('favorite')
+    return this.httpClient.delete(`${this.url}/${this.username}/favorites/${eventId}`,{headers}).toPromise() as Promise<any>
   }
   modifyAdmin = (isAdmin: boolean, username: string) : Promise<any> => this.httpClient.put(`${this.url}/${username}`, { admin: isAdmin }).toPromise()as Promise<any>
   signup = (name: string, username: string, password: string): Promise<any> => this.httpClient.post(this.url, {name, username, password}).toPromise() as Promise<any>

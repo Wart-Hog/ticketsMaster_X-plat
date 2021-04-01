@@ -17,7 +17,8 @@
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content>
     <ion-card-content>
-      <button *ngIf = "isLogged" (click)='buyTicket(i)'><ion-icon size="large" name="cart-outline"></ion-icon></button>
+      <ion-button *ngIf = "isLogged" (click)='buyTicket(i)' fill = "clear"><ion-icon size="large" name="cart-outline"></ion-icon></ion-button>
+      <ion-button *ngIf = "isLogged" (click)='addFavorite(i)' style="margin-left: 2%;" fill = "clear"><ion-icon size = "large" name="heart-circle-outline"></ion-icon></ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

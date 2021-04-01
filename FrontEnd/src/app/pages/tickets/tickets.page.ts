@@ -17,8 +17,7 @@ export class TicketsPage implements OnInit {
   username = ""
   constructor(private loginService: LoginService,private userService: UserService) { }
 
-  async ngOnInit() {
-    this.checkLogged()
+  async ionViewWillEnter(){
     try{
       if(this.isLogged){
         this.user = await this.loginService.getUser()
@@ -31,7 +30,21 @@ export class TicketsPage implements OnInit {
     }
   }
 
+  async ngOnInit() {
+    this.checkLogged()
+  }
+
   checkLogged = () =>{
     this.isLogged = sessionStorage.getItem("token") ? true : false
+  }
+
+  deleteTicket = async (i:number) =>{
+    try{
+      sessionStorage.setItem("ticketID", this.tickets[i].id)
+      await this.userService.removeTicket()
+      window.location.reload()
+    }catch(err){
+      return err
+    }
   }
 }

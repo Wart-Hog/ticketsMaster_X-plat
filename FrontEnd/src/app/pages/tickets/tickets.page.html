@@ -11,7 +11,7 @@
 <ion-content *ngIf = "isLogged">
   <div *ngFor ="let t of tickets; let i = index">
     <p>{{t.event.name}}</p>
-    <button class="btn btn-danger btn-sm" (click)='removeTicket(i)'>Rimuovi</button>
+    <button class="btn btn-danger btn-sm" (click)='deleteTicket(i)'>Rimuovi</button>
   </div>
 </ion-content>
 

@@ -29,6 +29,17 @@ export class HomePage implements OnInit {
       return err
     }
   }
+
+  addFavorite = async (i:number) =>{
+    sessionStorage.setItem("favorite", this.events[i].id)
+    try{
+      await this.userService.addFavorite()
+    }catch(err){
+      return err
+    }
+  }
+
+  
 }
 
 

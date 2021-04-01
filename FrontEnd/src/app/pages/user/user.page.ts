@@ -4,6 +4,7 @@ import { IUser } from '../../../../../BackEnd/src/Interfaces/IUser';
 import { ITicket } from '../../../../../BackEnd/src/Interfaces/ITicket';
 import { UserService } from 'src/app/services/user.service';
 import { EventService } from 'src/app/services/event.service';
+import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
 @Component({
   selector: 'app-user',
   templateUrl: './user.page.html',
@@ -12,6 +13,7 @@ import { EventService } from 'src/app/services/event.service';
 export class UserPage implements OnInit {
   user!:IUser 
   tickets:ITicket[] = []
+  favorites:IEvent[] = []
   usernameToPromove = ""
   admin = false
   name = ""
@@ -22,7 +24,8 @@ export class UserPage implements OnInit {
   dateTime =""
   price: any
   eventId = ""
-  
+  numberOfTickets = 0
+  numberOfFavorites = 0
   errorEventMessage = ""
   errorModifyAdmin = ""
   errorDeleteEvent = ""
@@ -36,8 +39,11 @@ export class UserPage implements OnInit {
       if(this.isLogged){
         this.user = await this.loginService.getUser()
         this.tickets = await this.userService.myTickets()
+        this.favorites = await this.userService.getFavorites()
         this.admin = this.user.admin
         this.username = this.user.username
+        this.numberOfTickets = this.tickets.length
+        this.numberOfFavorites = this.favorites.length
       }
       
     }catch(err){
