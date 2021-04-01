@@ -84,23 +84,24 @@ exports.router.put('/:username', middlewere_1.findUserIndex, function (_a, res) 
     });
 });
 exports.router.post('', middlewere_1.newUserValidator, middlewere_1.myValidationResult, middlewere_1.validateUsername, function (_a, res) {
-    var _b = _a.body, name = _b.name, username = _b.username, password = _b.password, _c = _b.tickets, tickets = _c === void 0 ? [] : _c, admin = _b.admin;
+    var _b = _a.body, name = _b.name, username = _b.username, password = _b.password, _c = _b.tickets, tickets = _c === void 0 ? [] : _c, _d = _b.favorites, favorites = _d === void 0 ? [] : _d, admin = _b.admin;
     return __awaiter(void 0, void 0, void 0, function () {
         var user;
-        return __generator(this, function (_d) {
-            switch (_d.label) {
+        return __generator(this, function (_e) {
+            switch (_e.label) {
                 case 0:
                     user = {
                         name: name,
                         username: username,
                         password: password,
                         tickets: tickets,
+                        favorites: favorites,
                         admin: admin
                     };
                     users_list = users_list.concat(user);
                     return [4 /*yield*/, fs.writeFileSync('users_list.json', JSON.stringify(users_list, null, 2))];
                 case 1:
-                    _d.sent();
+                    _e.sent();
                     return [2 /*return*/, res.status(201).json({ message: "writed" })];
             }
         });
@@ -184,6 +185,31 @@ exports.router.post('/:username/tickets', middlewere_1.checkTokenHeader, middlew
         });
     });
 });
+exports.router.post('/:username/favorites', middlewere_1.checkTokenHeader, middlewere_1.findUserIndex, function (_a, res) {
+    var eventId = _a.body.eventId;
+    return __awaiter(void 0, void 0, void 0, function () {
+        var readEventList, readUserList, event, usernameIndex;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, JSON.parse(fs.readFileSync('events_list.json'))];
+                case 1:
+                    readEventList = _b.sent();
+                    return [4 /*yield*/, JSON.parse(fs.readFileSync('users_list.json'))];
+                case 2:
+                    readUserList = _b.sent();
+                    event = readEventList.find(function (item) { return item.id == eventId; });
+                    if (!event)
+                        return [2 /*return*/, res.status(404).json({ message: "event not found" })];
+                    usernameIndex = res.locals.usernameIndex;
+                    readUserList[usernameIndex].favorites.push(event);
+                    return [4 /*yield*/, middlewere_1.writeOnJson('users_list.json', readUserList, res)];
+                case 3:
+                    _b.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+});
 exports.router.delete('/:username/tickets/:ticketId', middlewere_1.checkTokenHeader, middlewere_1.findUserIndex, function (_a, res) {
     var ticketId = _a.params.ticketId;
     return __awaiter(void 0, void 0, void 0, function () {
@@ -205,6 +231,27 @@ exports.router.delete('/:username/tickets/:ticketId', middlewere_1.checkTokenHea
         });
     });
 });
+exports.router.delete('/:username/favorites/:eventId', middlewere_1.checkTokenHeader, middlewere_1.findUserIndex, function (_a, res) {
+    var eventId = _a.params.eventId;
+    return __awaiter(void 0, void 0, void 0, function () {
+        var usernameIndex, readList, event;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    usernameIndex = res.locals.usernameIndex;
+                    return [4 /*yield*/, middlewere_1.readFromJson('users_list.json', res)];
+                case 1:
+                    readList = _b.sent();
+                    event = readList[usernameIndex].favorites.findIndex(function (item) { return item.id == eventId; });
+                    if (event === -1)
+                        return [2 /*return*/, res.status(404).json({ message: "event not found" })];
+                    readList[usernameIndex].favorites.splice(event, 1);
+                    middlewere_1.writeOnJson('users_list.json', readList, res);
+                    return [2 /*return*/];
+            }
+        });
+    });
+});
 exports.router.get('/:username/tickets', middlewere_1.checkTokenHeader, middlewere_1.findUserIndex, function (_, res) { return __awaiter(void 0, void 0, void 0, function () {
     var readList, usernameIndex;
     return __generator(this, function (_a) {
@@ -214,6 +261,19 @@ exports.router.get('/:username/tickets', middlewere_1.checkTokenHeader, middlewe
                 readList = _a.sent();
                 usernameIndex = res.locals.usernameIndex;
                 res.json(readList[usernameIndex].tickets);
+                return [2 /*return*/];
+        }
+    });
+}); });
+exports.router.get('/:username/favorites', middlewere_1.checkTokenHeader, middlewere_1.findUserIndex, function (_, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var readList, usernameIndex;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, middlewere_1.readFromJson('users_list.json', res)];
+            case 1:
+                readList = _a.sent();
+                usernameIndex = res.locals.usernameIndex;
+                res.json(readList[usernameIndex].favorites);
                 return [2 /*return*/];
         }
     });

@@ -5,39 +5,18 @@
     "password": "pincpall",
     "tickets": [
       {
-        "id": "ee037dc6-03df-40e5-bd79-77362e89da52",
+        "id": "337aa5df-6605-4535-babd-1868bff2f147",
         "event": {
           "name": "Motorhead",
           "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
           "type": "music",
           "place": "milan",
-          "dateTime": "canceled",
+          "dateTime": "03/07/90",
           "price": 40
-        }
-      },
-      {
-        "id": "295922cf-795a-4b22-a867-1a3ccabcd003",
-        "event": {
-          "name": "Notre dame de Paris",
-          "id": "90d02608-090d-4730-b265-d79f97c1ea06",
-          "type": "theatre",
-          "place": "milan",
-          "dateTime": "03/07/90",
-          "price": 60
-        }
-      },
-      {
-        "id": "9ed541e9-97b5-4f50-999c-35979af42adf",
-        "event": {
-          "name": "milan - juve",
-          "id": "54b49edf-3bd5-4af9-8317-7d74a1a8a174",
-          "type": "sport",
-          "place": "milan",
-          "dateTime": "03/07/90",
-          "price": 30
         }
       }
     ],
+    "favorites": [],
     "token": "CfvepgA9FGu9PwSpvA9rq9",
     "admin": true
   },
@@ -69,6 +48,7 @@
         }
       }
     ],
+    "favorites": [],
     "token": "74kEgqjb9cex7xGpCwTFib",
     "admin": true
   },
@@ -89,6 +69,7 @@
         }
       }
     ],
+    "favorites": [],
     "admin": false,
     "token": "7e5Y5VpMh9kMFTFk1PbhM7"
   }

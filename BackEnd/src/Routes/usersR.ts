@@ -23,12 +23,13 @@ router.put('/:username', findUserIndex,async ({body: {admin}}, res) =>{
     readList[usernameIndex].admin = admin
     writeOnJson('users_list.json',readList,res)
 })
-router.post('',newUserValidator,myValidationResult,validateUsername,async ({body: {name,username,password,tickets=[],admin}}: any,res: any)=>{
+router.post('',newUserValidator,myValidationResult,validateUsername,async ({body: {name,username,password,tickets=[],favorites = [],admin}}: any,res: any)=>{
     let user : IUser = {
         name,
         username,
         password,
         tickets,
+        favorites,
         admin 
     }
     users_list = users_list.concat(user)
@@ -70,6 +71,17 @@ router.post('/:username/tickets',checkTokenHeader, findUserIndex, async ({body: 
     readUserList[usernameIndex].tickets.push(newticket)
     await writeOnJson('users_list.json',readUserList,res)
 })
+
+router.post('/:username/favorites',checkTokenHeader, findUserIndex, async ({body: {eventId}}, res) =>{
+    const readEventList = await JSON.parse(fs.readFileSync('events_list.json'))
+    const readUserList = await JSON.parse(fs.readFileSync('users_list.json'))
+    const event = readEventList.find((item: { id: string }) => item.id == eventId)
+    if(!event) return res.status(404).json({message: "event not found"})
+    const {usernameIndex} = res.locals
+    readUserList[usernameIndex].favorites.push(event)
+    await writeOnJson('users_list.json',readUserList,res)
+})
+
 router.delete('/:username/tickets/:ticketId',checkTokenHeader,findUserIndex, async ({params: {ticketId}}, res) =>{
     const {usernameIndex} = res.locals
     const readList: any = await readFromJson('users_list.json', res)
@@ -78,10 +90,26 @@ router.delete('/:username/tickets/:ticketId',checkTokenHeader,findUserIndex, asy
     readList[usernameIndex].tickets.splice(ticket,1)
     writeOnJson('users_list.json',readList,res)
 })
+
+router.delete('/:username/favorites/:eventId',checkTokenHeader,findUserIndex, async ({params: {eventId}}, res) =>{
+    const {usernameIndex} = res.locals
+    const readList: any = await readFromJson('users_list.json', res)
+    const event = readList[usernameIndex].favorites.findIndex((item:{ id: any;}) => item.id == eventId)
+    if(event === -1) return res.status(404).json({message: "event not found"})
+    readList[usernameIndex].favorites.splice(event,1)
+    writeOnJson('users_list.json',readList,res)
+})
+
 router.get('/:username/tickets',checkTokenHeader,findUserIndex, async(_, res) =>{
     const readList: any = await readFromJson('users_list.json', res)
     const {usernameIndex} = res.locals
     res.json(readList[usernameIndex].tickets)
+})
+
+router.get('/:username/favorites',checkTokenHeader,findUserIndex, async(_, res) =>{
+    const readList: any = await readFromJson('users_list.json', res)
+    const {usernameIndex} = res.locals
+    res.json(readList[usernameIndex].favorites)
 })
 router.delete('/:username',checkTokenHeader,findUserIndex,(_,res)=>{
     const {usernameIndex} = res.locals
