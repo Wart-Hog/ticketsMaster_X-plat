@@ -45,9 +45,11 @@
         </ion-chip>
       </h6>
     </div>
-    <ion-button expand="full" color="primary">http://rogerfederer.com</ion-button>
-    <ion-button expand="full" color="secondary">@RogerFederer on Twitter</ion-button>
-    <ion-button expand="full" color="secondary">View profile at ATP</ion-button>
+    
+    <ion-button expand="full" color="primary"><ion-tab-button  tab="new-event">Create New Event</ion-tab-button></ion-button>
+    <ion-button expand="full"  color="secondary"><ion-tab-button style = "background:#51c8ff" tab="make-admin">New Admin</ion-tab-button></ion-button>
+    <ion-button expand="full"  color="danger"><ion-tab-button style = "background:#ff4a62" tab="delete-event">Delete Event</ion-tab-button></ion-button>
+
   </div>
   <button class="nav-link" (click) = 'logout()'> logout</button>   
 </ion-content>

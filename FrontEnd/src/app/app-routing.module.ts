@@ -29,6 +29,18 @@ const routes: Routes = [
   {
     path: 'edit-user',
     loadChildren: () => import('./pages/edit-user/edit-user.module').then( m => m.EditUserPageModule)
+  },
+  {
+    path: 'new-event',
+    loadChildren: () => import('./pages/new-event/new-event.module').then( m => m.NewEventPageModule)
+  },
+  {
+    path: 'delete-event',
+    loadChildren: () => import('./pages/delete-event/delete-event.module').then( m => m.DeleteEventPageModule)
+  },
+  {
+    path: 'make-admin',
+    loadChildren: () => import('./pages/make-admin/make-admin.module').then( m => m.MakeAdminPageModule)
   }
 ];
 @NgModule({

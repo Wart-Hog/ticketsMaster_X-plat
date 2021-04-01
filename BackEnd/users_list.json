@@ -72,7 +72,7 @@
         "price": 60
       }
     ],
-    "token": "6Tx7oya2sggGWmtQdanUM8",
+    "token": "42tukSrkwCnbecgQ74bReb",
     "admin": true
   },
   {
@@ -125,7 +125,7 @@
       }
     ],
     "favorites": [],
-    "admin": false,
+    "admin": true,
     "token": "7e5Y5VpMh9kMFTFk1PbhM7"
   }
 ]

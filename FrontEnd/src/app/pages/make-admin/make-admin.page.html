@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>make-admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form_main">
+      <h4 class="heading"><strong>Promuovi/Rimuovi Admin</strong></h4>
+    <div class="form">
+        <form>
+            <input type="text" required="" placeholder="Username" name="usernameToPromove" class="txt"  [(ngModel)] = "usernameToPromove">
+            Admin: <input name = "admin" type="checkbox" [(ngModel)] = "admin">
+            <br>
+            <p class="text-danger">{{errorModifyAdmin}}</p>
+            <input type="submit" value="fatto" name="submit" class="txt2"  (click) = "makeAdmin()">
+        </form>
+    </div>
+  </div>
+</ion-content>

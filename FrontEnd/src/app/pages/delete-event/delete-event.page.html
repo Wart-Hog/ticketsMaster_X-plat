@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>delete-event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form_main">
+      <h4 class="heading"><strong>Elimina evento </strong></h4>
+    <div class="form">
+        <form>
+            <input type="text" required="" placeholder="event Id" value="" name="eventId" class="txt"  [(ngModel)] = "eventId">
+            <p class="text-danger">{{errorDeleteEvent}}</p>
+            <input type="submit" value="elimina" name="submit" class="txt2"  (click) = "deleteEvent()">
+        </form>
+    </div>
+  </div>
+</ion-content>
