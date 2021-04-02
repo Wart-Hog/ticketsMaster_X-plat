@@ -12,7 +12,7 @@ export class HomePage implements OnInit {
   public events : IEvent[] = []
   isLogged = true
   constructor(private eventService: EventService,private userService: UserService) { }
-  imgUrl = ["https://www.political24.it/wp-content/uploads/2021/03/Pippo-Baudo-Political24.jpg"]
+  
   async ngOnInit() {
     try{
       this.events = await this.eventService.all(0, 50)

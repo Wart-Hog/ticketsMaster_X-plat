@@ -7,7 +7,6 @@
 <ion-content>
   <ion-card *ngFor = "let e of events; let i = index">
     <ion-card-header>
-        <ion-img [src]="imgUrl"></ion-img>
       <ion-card-subtitle>{{e.dateTime}}</ion-card-subtitle>
       <ion-card-title>{{e.name}}</ion-card-title>
     </ion-card-header>
