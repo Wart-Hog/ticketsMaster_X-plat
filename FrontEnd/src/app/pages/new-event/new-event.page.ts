@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { EventService } from 'src/app/services/event.service';
 
 @Component({
@@ -14,13 +15,14 @@ export class NewEventPage implements OnInit {
   price: any
   errorEventMessage = ""
   //errorDeleteEvent = ""
-  constructor(private eventService:EventService) { }
+  constructor(private eventService:EventService, private dataSharingService: DataSharingService) { }
 
   ngOnInit() {}
   async createEvent() {
     try{
       this.changeDataFormat()
       await this.eventService.newEvent(this.eventName, this.type, this.place, this.dateTime, this.price)
+      this.dataSharingService.changes.next(true);
       //window.location.replace('http://localhost:4200')  
     }catch(error: any){
       this.errorEventMessage="dati errati"

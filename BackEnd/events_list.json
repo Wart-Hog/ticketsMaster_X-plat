@@ -64,51 +64,43 @@
     "price": "40"
   },
   {
-    "name": "Gianni",
-    "id": "dc1f3b09-fdb7-4d99-bcd7-9bb147d8a21d",
+    "name": "prova1",
+    "id": "09945054-57d9-40f9-86f2-0c1336a2b279",
     "type": "theatre",
-    "place": "Messina",
+    "place": "provaluoigo",
     "dateTime": "09-04-2021",
-    "price": "32"
+    "price": "30"
   },
   {
-    "name": "Napoli - Inter",
-    "id": "ed6f8335-47b7-4bc9-bcb1-fd193750f6b9",
-    "type": "sport",
-    "place": "Napoli",
-    "dateTime": "17-06-2021",
-    "price": "65"
-  },
-  {
-    "name": "Slayer",
-    "id": "2519859d-9568-4033-a922-55a5c75ac9e1",
+    "name": "aa",
+    "id": "4cae20f6-edd4-409e-bc1c-ddfdf38001d4",
     "type": "music",
-    "place": "Acitrezza",
-    "dateTime": "06-08-2021",
-    "price": "65"
+    "place": "aaa",
+    "dateTime": "09-04-2021",
+    "price": "34"
   },
   {
-    "name": "Francia - Italia",
-    "id": "37694bc8-a364-4c03-a951-bce067b36696",
+    "name": "dd",
+    "id": "b6d1c46b-579f-4557-be13-683b3b0aa8cc",
+    "type": "music",
+    "place": "dd",
+    "dateTime": "16-04-2021",
+    "price": "30"
+  },
+  {
+    "name": "Cyrano",
+    "id": "f5db13a9-5e17-49d9-adcb-e0d14ac403ea",
+    "type": "theatre",
+    "place": "Librino",
+    "dateTime": "03-04-2021",
+    "price": "15"
+  },
+  {
+    "name": "Librino-Zen",
+    "id": "180d9977-7658-4cd1-bdca-76e103f1588e",
     "type": "sport",
-    "place": "Parigi",
-    "dateTime": "15-04-2021",
-    "price": "65"
-  },
-  {
-    "name": "Tragedia Greca",
-    "id": "57247c93-3c4a-4b8b-a2e5-039f8938ae22",
-    "type": "theatre",
-    "place": "Siracusa",
-    "dateTime": "14-05-2021",
-    "price": "25"
-  },
-  {
-    "name": "Aldo GIovanni e Giacomo",
-    "id": "072511da-ab15-4e43-a9dc-4d3ce6a75353",
-    "type": "theatre",
-    "place": "Milano",
-    "dateTime": "11-06-2021",
-    "price": "35"
+    "place": "Tunnicieddu",
+    "dateTime": "29-04-2021",
+    "price": "7"
   }
 ]

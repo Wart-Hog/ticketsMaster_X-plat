@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { EventService } from 'src/app/services/event.service';
 import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
 
@@ -10,16 +11,24 @@ import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
 export class TheatreComponent implements OnInit {
   public events : IEvent[] = []
   public isLogged = false
-  @Output() theatre: EventEmitter<any> = new EventEmitter<any>()
-  constructor(private eventService: EventService) {}
+  public updateValues: boolean
 
-  async ngOnInit() {
-    try{
+  @Output() theatre: EventEmitter<any> = new EventEmitter<any>()
+  constructor(private eventService: EventService,private dataSharingService: DataSharingService) {
+    this.dataSharingService.changes.subscribe( async value => {
+      this.updateValues = value;
       this.events = await this.eventService.getTheatreEvents()
       this.checkLogged()
-    }catch(error){
-      return error
-    }
+    });
+}
+
+  async ngOnInit() {
+    // try{
+    //   this.events = await this.eventService.getTheatreEvents()
+    //   this.checkLogged()
+    // }catch(error){
+    //   return error
+    // }
   }
 
   getTheatre = () =>{

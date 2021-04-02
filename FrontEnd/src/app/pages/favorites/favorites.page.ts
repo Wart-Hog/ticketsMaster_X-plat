@@ -15,7 +15,7 @@ export class FavoritesPage implements OnInit {
   favorites:IEvent[] = []
   username = ""
   constructor(private loginService: LoginService,private userService: UserService) { }
-
+  
   async ionViewWillEnter(){
     try{
       if(this.isLogged){
