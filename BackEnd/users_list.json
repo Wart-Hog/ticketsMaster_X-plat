@@ -72,7 +72,7 @@
         "price": 60
       }
     ],
-    "token": "42tukSrkwCnbecgQ74bReb",
+    "token": "QEHwakcQH6gR3z2EYocY7C",
     "admin": true
   },
   {
@@ -125,7 +125,15 @@
       }
     ],
     "favorites": [],
-    "admin": true,
+    "admin": false,
     "token": "7e5Y5VpMh9kMFTFk1PbhM7"
+  },
+  {
+    "name": "prova1",
+    "username": "prova2",
+    "password": "prova3",
+    "tickets": [],
+    "favorites": [],
+    "token": "6urS7486N2XHtvginY9S9i"
   }
 ]

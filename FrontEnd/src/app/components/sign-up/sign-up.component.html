@@ -1,29 +1,41 @@
 <div class="login-container">
     <div class="row justify-content-center">
-        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-            <div class="field">
-                <label class="label" for="username">Username</label>
-                <div class="control">
-                    <input class="input" type="text" id="username" name="username" placeholder="Username" [formControl]="form.controls['username']">
+      <div class = "col-md-6 login-form-1">
+            <h3>Login</h3>
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+
+                <div class="form-group" [ngClass]="displayFieldCss('name')">
+                    <div class="col-sm-12">
+                      <label for="name" class="control-label required">Name</label>
+                      <input type="text" id="name" class="form-control" formControlName="name">
+                      <app-field-error-display 
+                        [displayError]="isFieldValid('name')" 
+                        errorMsg="Required!">
+                      </app-field-error-display>
+                    </div>
                 </div>
-                <p *ngIf="form.controls['username'].hasError('required')" class="help is-danger">Il campo username è obbligatorio</p>
-            </div>
-            <div class="field">
-                <label class="label" for="email">Email</label>
-                <div class="control">
-                    <input class="input" type="text" id="email" name="email" placeholder="email" [formControl]="form.controls['email']">
+                <div class="form-group" [ngClass]="displayFieldCss('username')">
+                    <div class="col-sm-12">
+                      <label for="username" class="control-label required">Username</label>
+                      <input type="text" id="username" class="form-control" formControlName="username">
+                      <app-field-error-display 
+                        [displayError]="isFieldValid('name')" 
+                        errorMsg="Required or already in use">
+                      </app-field-error-display>
+                    </div>
                 </div>
-                <p *ngIf="form.controls['email'].hasError('required')" class="help is-danger">Il campo email è obbligatorio</p>
-            </div>
-            <div class="field">
-                <label class="label" for="password">Password</label>
-                <div class="control">
-                    <input class="input" type="text" id="password" name="password" placeholder="password" [formControl]="form.controls['password']">
+                <div class="form-group" [ngClass]="displayFieldCss('password')">
+                    <div class="col-sm-12">
+                      <label for="name" class="control-label required">Password</label>
+                      <input type="password" id="password" class="form-control" formControlName="password">
+                      <app-field-error-display 
+                        [displayError]="isFieldValid('password')" 
+                        errorMsg="Must be 6 lenght plus special char">
+                      </app-field-error-display>
+                    </div>
                 </div>
-                <p *ngIf="form.controls['password'].hasError('required')" class="help is-danger">Il campo password è obbligatorio</p>
-                <p *ngIf="form.controls['password'].hasError('pattern')" class="help is-danger">Il campo password è deve avere almeno 8 caratteri di cui almeno: 1 Maiuscola,1Minuscola,1 Numbero,1 Carattere speciale</p>
-            </div>
-            <button class="button is-dark is-small" type="submit">Sign Up</button>
-        </form>
+                <button class="btn btn-primary" (click)="onSubmit(form.value)">Submit</button>
+            </form>
+          </div>
     </div>
-</div>
+  </div>

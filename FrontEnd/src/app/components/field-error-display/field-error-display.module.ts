@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-import { LoginComponent } from './login.component';
+import { FieldErrorDisplayComponent } from './field-error-display.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { LoginComponent } from './login.component';
     IonicModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent],
-  exports: [LoginComponent]
+  declarations: [FieldErrorDisplayComponent],
+  exports: [FieldErrorDisplayComponent]
 })
-export class LoginModule {}
+export class FieldErrorDisplayModule {}

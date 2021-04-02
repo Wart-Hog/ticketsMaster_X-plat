@@ -4,13 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { SignUpComponent } from './sign-up.component';
+import { FieldErrorDisplayModule } from '../field-error-display/field-error-display.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FieldErrorDisplayModule
   ],
   declarations: [SignUpComponent],
   exports: [SignUpComponent]
