@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { EventService } from 'src/app/services/event.service';
 import { UserService } from 'src/app/services/user.service';
 import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
@@ -11,7 +12,7 @@ import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
 export class HomePage implements OnInit {
   public events : IEvent[] = []
   isLogged = true
-  constructor(private eventService: EventService,private userService: UserService) { }
+  constructor(private eventService: EventService,private userService: UserService,public toastController: ToastController) { }
   
   async ngOnInit() {
     try{
@@ -25,15 +26,31 @@ export class HomePage implements OnInit {
     sessionStorage.setItem("ticket", this.events[i].id)
     try{
       await this.userService.buyTicket()
+      this.cartToast()
     }catch(err){
       return err
     }
+  }
+  async cartToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to cart',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async favouriteToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to favourite',
+      duration: 2000
+    });
+    toast.present();
   }
 
   addFavorite = async (i:number) =>{
     sessionStorage.setItem("favorite", this.events[i].id)
     try{
       await this.userService.addFavorite()
+      this.favouriteToast()
     }catch(err){
       return err
     }

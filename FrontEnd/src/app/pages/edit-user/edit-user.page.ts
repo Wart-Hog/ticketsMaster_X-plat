@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 import { IUser } from '../../../../../BackEnd/src/Interfaces/IUser';
@@ -14,7 +15,7 @@ export class EditUserPage implements OnInit {
   username = ""
   password = ""
   errorMessage = ""
-  constructor(private userService: UserService, private loginService: LoginService) { }
+  constructor(private userService: UserService, private loginService: LoginService,public toastController: ToastController) { }
 
   async ngOnInit() {
     try{
@@ -24,12 +25,19 @@ export class EditUserPage implements OnInit {
       return err
     }
   }
-
+  async updateToast() {
+    const toast = await this.toastController.create({
+      message: 'Data Updated!',
+      duration: 2000
+    });
+    toast.present();
+  }
   async modifyUser() {
     try{
       await this.userService.modifyUser(this.name, this.username, this.password)
       sessionStorage.setItem("username", this.username)
-      window.location.reload()
+      this.updateToast()
+      //window.location.reload()
     }catch(error: any){
       this.errorMessage="username già esistente o password invalida"
       return

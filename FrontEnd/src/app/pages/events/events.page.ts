@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { EventService } from 'src/app/services/event.service';
 import { UserService } from 'src/app/services/user.service';
 import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
@@ -15,50 +16,51 @@ export class EventsPage implements OnInit {
   public toShow =""
   public isLogged = false
   imgUrl = ["https://www.political24.it/wp-content/uploads/2021/03/Pippo-Baudo-Political24.jpg"]
-  constructor(private eventService: EventService, private userService: UserService) { }
+  constructor(private eventService: EventService, private userService: UserService,public toastController: ToastController) { }
   
-  async ionViewWillEnter(){
-    
+  buyTicket = async (i:number) =>{
+    sessionStorage.setItem("ticket", this.getEvents[i].id)
+    try{
+      await this.userService.buyTicket()
+      this.cartToast()
+    }catch(err){
+      return err
+    }
+  }
+  async cartToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to cart',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async favouriteToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to favourite',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  addFavorite = async (i:number) =>{
+    sessionStorage.setItem("favorite", this.getEvents[i].id)
+    try{
+      await this.userService.addFavorite()
+      this.favouriteToast()
+    }catch(err){
+      return err
+    }
   }
 
   async ngOnInit() {
     this.checkLogged()
-    /* try{
-      this.events = await this.eventService.all(0, 30)
-      this.checkLogged()
-    }catch(error){
-      return error
-    } */
   }
 
   getFromInput(myInput){
     this.getEvents = myInput
   }
- /*  buyTicket = async (i:number) =>{
-    sessionStorage.setItem("ticket", this.events[i].id)
-    try{
-      await this.userService.buyTicket()
-      window.location.replace('http://localhost:4200/user')
-    }catch(err){
-      return err
-    }
-  }
-
-  addFavorite = async (i:number) =>{
-    sessionStorage.setItem("favorite", this.events[i].id)
-    try{
-      await this.userService.addFavorite()
-    }catch(err){
-      return err
-    }
-  } */
 
   checkLogged = () =>{
     this.isLogged = sessionStorage.getItem("token") ? true : false
-  }/* 
-  show = (i:number) =>{
-    this.toShow = this.events[i].id
-    alert(this.toShow);
-  } */
-
+  }
 }

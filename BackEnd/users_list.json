@@ -5,7 +5,7 @@
     "password": "pincpall",
     "tickets": [
       {
-        "id": "2418d987-b68b-438d-9564-50f976b20115",
+        "id": "6e47daf4-e621-476e-b813-1fef795eb43a",
         "event": {
           "name": "Notre dame de Paris",
           "id": "90d02608-090d-4730-b265-d79f97c1ea06",
@@ -16,25 +16,14 @@
         }
       },
       {
-        "id": "31100225-30a1-49bc-bddf-07739ced1ab0",
+        "id": "4cc2c39c-4f7a-4460-836f-9fbf7bc1546b",
         "event": {
-          "name": "Led Zeppelin",
-          "id": "9572137a-f977-4271-9e5b-b1fb549b775d",
+          "name": "Motorhead",
+          "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
           "type": "music",
-          "place": "Wembley Stadium",
-          "dateTime": "02/07/2022",
-          "price": "80"
-        }
-      },
-      {
-        "id": "b9b14dc6-f4fb-4a55-bccd-b86a7907a922",
-        "event": {
-          "name": "Ed Sheeran",
-          "id": "4f6dfac1-31a5-4097-93ab-3d5d8e9bae19",
-          "type": "music",
-          "place": "London",
-          "dateTime": "01/02/2000",
-          "price": 70
+          "place": "milan",
+          "dateTime": "03/07/90",
+          "price": 40
         }
       }
     ],
@@ -48,20 +37,12 @@
         "price": 30
       },
       {
-        "name": "evento",
-        "id": "426f8584-980e-4b55-8a4f-1bd2a1897ef1",
-        "type": "sport",
-        "place": "luogo",
-        "dateTime": "18-02-2021",
-        "price": "40"
-      },
-      {
-        "name": "Notre dame de Paris",
-        "id": "90d02608-090d-4730-b265-d79f97c1ea06",
-        "type": "theatre",
+        "name": "Motorhead",
+        "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
+        "type": "music",
         "place": "milan",
         "dateTime": "03/07/90",
-        "price": 60
+        "price": 40
       },
       {
         "name": "Notre dame de Paris",
@@ -72,7 +53,7 @@
         "price": 60
       }
     ],
-    "token": "454mfgXGfqSET3LZ3Y5wmS",
+    "token": "SBa5dWmumb5B2BK1T4zu7C",
     "admin": true
   },
   {

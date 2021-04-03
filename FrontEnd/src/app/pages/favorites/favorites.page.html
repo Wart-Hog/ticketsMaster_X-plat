@@ -5,6 +5,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-content *ngIf = "!isLogged">
+    <ion-tab-button  tab="user" >
+      Loggati per vedere i tuoi preferiti
+    </ion-tab-button> 
+  </ion-content>
   <ion-list>
     <ion-item *ngFor = "let f of favorites; let i = index">
       <ion-avatar slot="start">

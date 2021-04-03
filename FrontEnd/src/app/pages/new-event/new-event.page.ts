@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { EventService } from 'src/app/services/event.service';
 
@@ -15,7 +16,7 @@ export class NewEventPage implements OnInit {
   price: any
   errorEventMessage = ""
   //errorDeleteEvent = ""
-  constructor(private eventService:EventService, private dataSharingService: DataSharingService) { }
+  constructor(private eventService:EventService, private dataSharingService: DataSharingService,public toastController: ToastController) { }
 
   ngOnInit() {}
   async createEvent() {
@@ -23,11 +24,19 @@ export class NewEventPage implements OnInit {
       this.changeDataFormat()
       await this.eventService.newEvent(this.eventName, this.type, this.place, this.dateTime, this.price)
       this.dataSharingService.changes.next(true);
+      this.createdToast()
       //window.location.replace('http://localhost:4200')  
     }catch(error: any){
       this.errorEventMessage="dati errati"
       return
     }
+  }
+  async createdToast() {
+    const toast = await this.toastController.create({
+      message: 'Created!',
+      duration: 2000
+    });
+    toast.present();
   }
   changeDataFormat =() =>{
     let newDate = this.dateTime.split("-")

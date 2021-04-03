@@ -5,13 +5,30 @@
 </ion-header>
 
 <ion-content *ngIf = "!isLogged">
-  <p>Loggati per vedere i tuoi biglietti</p>
+  <ion-tab-button  tab="user" >
+    Loggati per vedere i tuoi biglietti
+  </ion-tab-button> 
 </ion-content>
 
 <ion-content *ngIf = "isLogged">
-  <div *ngFor ="let t of tickets; let i = index">
-    <p>{{t.event.name}}</p>
-    <button class="btn btn-danger btn-sm" (click)='deleteTicket(i)'>Rimuovi</button>
-  </div>
+  <ion-list>
+    <ion-item *ngFor = "let t of tickets; let i = index">
+      <ion-avatar slot="start">
+        <img src="./avatar-poe.png">
+      </ion-avatar>
+      <ion-label>
+        <ion-row class = "align-items-center">
+          <ion-col>
+            <h2>{{t.event.name}}</h2>
+            <h3>{{t.event.dateTime}} {{t.event.price}}$</h3>
+            <p>{{t.event.type}}</p>
+          </ion-col>
+          <ion-col>
+            <ion-button fill = "clear" (click) = "deleteFavorite(i)"><ion-icon color = "danger" name="trash-outline"></ion-icon></ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
 

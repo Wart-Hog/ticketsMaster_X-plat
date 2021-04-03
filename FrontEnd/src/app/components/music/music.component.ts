@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { EventService } from 'src/app/services/event.service';
 import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
@@ -14,7 +15,7 @@ export class MusicComponent implements OnInit {
   public isLogged = false
   public updateValues: boolean
   @Output() music: EventEmitter<any> = new EventEmitter<any>()
-  constructor(private eventService: EventService,private dataSharingService: DataSharingService) {
+  constructor(private eventService: EventService,private dataSharingService: DataSharingService,public toastController: ToastController) {
       this.dataSharingService.changes.subscribe( async value => {
         this.updateValues = value;
         this.events = await this.eventService.getMusicEvents()
@@ -37,5 +38,19 @@ export class MusicComponent implements OnInit {
 
   checkLogged = () =>{
     this.isLogged = sessionStorage.getItem("token") ? true : false
+  }
+  async cartToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to cart',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async favouriteToast() {
+    const toast = await this.toastController.create({
+      message: 'Added to favourite',
+      duration: 2000
+    });
+    toast.present();
   }
 }

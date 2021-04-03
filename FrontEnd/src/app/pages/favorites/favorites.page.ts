@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
@@ -35,12 +36,14 @@ export class FavoritesPage implements OnInit {
   checkLogged = () =>{
     this.isLogged = sessionStorage.getItem("token") ? true : false
   }
+  
 
   deleteFavorite = async (i:number) =>{
     try{
       sessionStorage.setItem("favorite", this.favorites[i].id)
       await this.userService.removeFavorite()
       window.location.reload()
+      
     }catch(err){
       return err
     }
