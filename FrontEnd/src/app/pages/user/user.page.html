@@ -28,28 +28,59 @@
     <div class="user-meta ion-text-center">
       <div class = "row justify-content-center">
         <ion-row>
-          <h3 class="playername">Ciao {{username}}</h3>
+          <h3 class="playername">{{username}}</h3>
           <ion-tab-button  tab="edit-user" >
-            <ion-icon class="icon" name="pencil"></ion-icon>
+            <ion-icon class="icon" size = "small" name="pencil"></ion-icon>
           </ion-tab-button> 
         </ion-row>
       </div>
       
-      <h5 class="country">ciao</h5>
-      <h6 class="ranking">Eventi preferiti:<ion-chip>
-        <ion-label>{{numberOfFavorites}}</ion-label>
-        </ion-chip>
-      </h6>
-      <h6 class="ranking">I miei biglietti:<ion-chip>
-        <ion-label>{{numberOfTickets}}</ion-label>
-        </ion-chip>
-      </h6>
+      <ion-chip *ngIf = "admin" color ="success">
+        <ion-icon name="shield-checkmark-outline" color = "primary"></ion-icon>
+        <ion-label>Admin</ion-label>
+      </ion-chip>
+
+      <ion-row class = "justify-content-center ">
+        <h6 class="ranking">Preferiti:<ion-chip>
+          <ion-label>{{numberOfFavorites}}</ion-label>
+          </ion-chip>
+        </h6>
+        <h6 class="ranking">Biglietti:<ion-chip>
+          <ion-label>{{numberOfTickets}}</ion-label>
+          </ion-chip>
+        </h6>
+      </ion-row>
+      
     </div>
     
+    <div class = "profile-buttons" *ngIf = "admin">
     <ion-button expand="full" color="primary"><ion-tab-button  tab="new-event">Create New Event</ion-tab-button></ion-button>
     <ion-button expand="full"  color="secondary"><ion-tab-button style = "background:#51c8ff" tab="make-admin">New Admin</ion-tab-button></ion-button>
     <ion-button expand="full"  color="danger"><ion-tab-button style = "background:#ff4a62" tab="delete-event">Delete Event</ion-tab-button></ion-button>
+    </div>
 
+    <ion-row class = "justify-content-center " style="margin-top: 5%;">
+      <ion-chip>
+        <ion-label>Ultimo biglietto acquistato</ion-label>
+      </ion-chip>
+    </ion-row>
+
+    
+    <ion-item style="margin-top: 7%;">
+      <ion-avatar slot="start">
+        <img src="./avatar-poe.png">
+      </ion-avatar>
+      <ion-label>
+        <ion-row class = "align-items-center">
+          <ion-col>
+            <h2>{{lastTicket.event.name}}</h2>
+            <h3>{{lastTicket.event.dateTime}} {{lastTicket.event.price}}$</h3>
+            <p>{{lastTicket.event.type}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+    
   </div>
-  <button class="nav-link" (click) = 'logout()'> logout</button>   
+  <ion-button color="medium" expand = "full"  (click)= 'logout()'> disconettiti</ion-button>   
 </ion-content>

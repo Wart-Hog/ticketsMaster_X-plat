@@ -15,7 +15,7 @@
                 border-radius: 50%;
                 position: absolute;
                 bottom: calc(-1*(80px + 4px));
-                border: 8px solid #9Dc912;
+                border: 8px solid #3880ff;
                 
             }
         }
@@ -23,12 +23,12 @@
 }
 
 .card-body {
-    padding: 30px;
+    padding: 35px;
     height: calc(100vh – (200px + 56px));
     overflow: hidden;
     
     .user-meta {
-        padding-top: 40px;
+        padding-top: 10px;
 
         .playername {
             font-size: 24px;
@@ -43,6 +43,17 @@
             margin: 0 auto;
         }
     }
+    h6{
+        margin-right: 5%;
+    }
+}
+.logout-button{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.profile-buttons{
+    margin-top: 10%;
 }
 
 /* ion-icon{

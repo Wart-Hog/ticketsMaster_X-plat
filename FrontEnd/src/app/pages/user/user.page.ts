@@ -15,6 +15,7 @@ export class UserPage implements OnInit {
   tickets:ITicket[] = []
   favorites:IEvent[] = []
   usernameToPromove = ""
+  lastTicket!:ITicket
   admin = false
   name = ""
   eventName = ""
@@ -33,7 +34,7 @@ export class UserPage implements OnInit {
   signUpVisible: boolean
   constructor(private loginService: LoginService,private userService: UserService, private eventService:EventService) { }
 
-  async ngOnInit(){
+  async ionViewWillEnter(){
     this.checkLogged()
     try{
       if(this.isLogged){
@@ -44,11 +45,31 @@ export class UserPage implements OnInit {
         this.username = this.user.username
         this.numberOfTickets = this.tickets.length
         this.numberOfFavorites = this.favorites.length
+        this.lastTicket = this.tickets[this.tickets.length - 1]
       }
       
     }catch(err){
       return err
     }
+  }
+
+  async ngOnInit(){
+    /* this.checkLogged()
+    try{
+      if(this.isLogged){
+        this.user = await this.loginService.getUser()
+        this.tickets = await this.userService.myTickets()
+        this.favorites = await this.userService.getFavorites()
+        this.admin = this.user.admin
+        this.username = this.user.username
+        this.numberOfTickets = this.tickets.length
+        this.numberOfFavorites = this.favorites.length
+        this.lastTicket = this.tickets[this.tickets.length - 1]
+      }
+      
+    }catch(err){
+      return err
+    } */
     
   }
 
