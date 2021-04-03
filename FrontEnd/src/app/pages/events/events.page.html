@@ -5,12 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <app-music (music) = "getFromInput($event)"></app-music>
-  <app-theatre (theatre) = "getFromInput($event)"></app-theatre>
-  <app-sport (sport) = "getFromInput($event)"></app-sport>
+  <ion-row class= "justify-content-center">
+    <app-music (music) = "getFromInput($event)"></app-music>
+    <app-theatre (theatre) = "getFromInput($event)"></app-theatre>
+    <app-sport (sport) = "getFromInput($event)"></app-sport>
+  </ion-row>  
   <ion-card *ngFor = "let e of getEvents; let i = index">
     <ion-card-header>
-        <ion-img [src]="imgUrl"></ion-img>
+        <ion-img [src]="images[i]"></ion-img>
       <ion-card-subtitle>{{e.dateTime}}</ion-card-subtitle>
       <ion-card-title>{{e.name}}</ion-card-title>
     </ion-card-header>

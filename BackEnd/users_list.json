@@ -58,17 +58,6 @@
           "dateTime": "02/07/2022",
           "price": "80"
         }
-      },
-      {
-        "id": "0fc2c5e9-60dc-4f5e-9f0a-d7b5f77f73c1",
-        "event": {
-          "name": "evento",
-          "id": "426f8584-980e-4b55-8a4f-1bd2a1897ef1",
-          "type": "sport",
-          "place": "luogo",
-          "dateTime": "18-02-2021",
-          "price": "40"
-        }
       }
     ],
     "favorites": [
@@ -105,7 +94,7 @@
         "price": "7"
       }
     ],
-    "token": "8r5SgdmymiVyFnFfUJE1ss",
+    "token": "GFBmTK4yhqpMLYo2uhisnt",
     "admin": true
   },
   {
