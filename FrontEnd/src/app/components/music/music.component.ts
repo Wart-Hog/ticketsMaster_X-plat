@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { EventService } from 'src/app/services/event.service';
@@ -14,6 +14,7 @@ export class MusicComponent implements OnInit {
   public events : IEvent[] = []
   public isLogged = false
   public updateValues: boolean
+  @Input() selected = false
   @Output() music: EventEmitter<any> = new EventEmitter<any>()
   constructor(private eventService: EventService,private dataSharingService: DataSharingService,public toastController: ToastController) {
       this.dataSharingService.changes.subscribe( async value => {

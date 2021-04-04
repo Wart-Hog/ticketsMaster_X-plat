@@ -6,13 +6,15 @@
 
 <ion-content>
   <ion-row class= "justify-content-center">
-    <app-music (music) = "getFromInput($event)"></app-music>
-    <app-theatre (theatre) = "getFromInput($event)"></app-theatre>
-    <app-sport (sport) = "getFromInput($event)"></app-sport>
+    <app-music (music) = "getFromInput($event)" [selected] = "selected[0].value"></app-music>
+    <app-theatre (theatre) = "getFromInput($event)" [selected] = "selected[1].value"></app-theatre>
+    <app-sport (sport) = "getFromInput($event)" [selected] = "selected[2].value"></app-sport>
   </ion-row>  
   <ion-card *ngFor = "let e of getEvents; let i = index">
     <ion-card-header>
-        <ion-img [src]="images[i]"></ion-img>
+        <ion-img *ngIf = "e.type == 'music'" [src]="images.music[i]"></ion-img>
+        <ion-img *ngIf = "e.type == 'theatre'" [src]="images.theatre[i]"></ion-img>
+        <ion-img *ngIf = "e.type == 'sport'" [src]="images.sport[i]"></ion-img>
       <ion-card-subtitle>{{e.dateTime}}</ion-card-subtitle>
       <ion-card-title>{{e.name}}</ion-card-title>
     </ion-card-header>
