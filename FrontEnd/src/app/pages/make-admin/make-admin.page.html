@@ -5,19 +5,19 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-tab-button>
     </ion-buttons>
+    <ion-title>Promuovi/Rimuovi Admin</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="form_main">
-      <h4 class="heading"><strong>Promuovi/Rimuovi Admin</strong></h4>
+  <div class="login-container">
     <div class="form">
-        <form>
+        <form class="login-form-1">
             <input type="text" required="" placeholder="Username" name="usernameToPromove" class="txt"  [(ngModel)] = "usernameToPromove">
             Admin: <input name = "admin" type="checkbox" [(ngModel)] = "admin">
             <br>
             <p class="text-danger">{{errorModifyAdmin}}</p>
-            <input type="submit" value="fatto" name="submit" class="txt2"  (click) = "makeAdmin()">
+            <input type="submit" value="Fatto" name="submit" class="btnSubmit"  (click) = "makeAdmin()">
         </form>
     </div>
   </div>

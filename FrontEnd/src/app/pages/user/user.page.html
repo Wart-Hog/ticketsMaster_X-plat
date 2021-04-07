@@ -6,12 +6,16 @@
 
 <ion-content *ngIf ="signUpVisible">
   <app-sign-up></app-sign-up>
-  <button (click)= "signUpBtnStatus()">Già registrato?</button>
+  <ion-row class="justify-content-center">
+    <ion-button class= "ForgetPwd" fill="clear" (click)= "signUpBtnStatus()">Già registrato?</ion-button>
+  </ion-row>
 </ion-content>
 
 <ion-content *ngIf ="!isLogged && !signUpVisible">
   <app-login id = "login" ></app-login>
-  <button (click)= "signUpBtnStatus()">Oppure registrati</button>
+  <ion-row class="justify-content-center">
+    <ion-button (click)= "signUpBtnStatus()" class= "ForgetPwd" fill="clear">Oppure registrati</ion-button>
+  </ion-row>
 </ion-content>
 
 <ion-content *ngIf = "isLogged">
@@ -54,9 +58,9 @@
     </div>
     
     <div class = "profile-buttons" *ngIf = "admin">
-    <ion-button expand="full" color="primary"><ion-tab-button  tab="new-event">Create New Event</ion-tab-button></ion-button>
-    <ion-button expand="full"  color="secondary"><ion-tab-button style = "background:#51c8ff" tab="make-admin">New Admin</ion-tab-button></ion-button>
-    <ion-button expand="full"  color="danger"><ion-tab-button style = "background:#ff4a62" tab="delete-event">Delete Event</ion-tab-button></ion-button>
+    <ion-button expand="full" color="primary"><ion-tab-button class ="text-btn" tab="new-event">Create New Event</ion-tab-button></ion-button>
+    <ion-button expand="full"  color="secondary"><ion-tab-button class ="text-btn" style = "background:#51c8ff" tab="make-admin">New Admin</ion-tab-button></ion-button>
+    <ion-button expand="full"  color="danger"><ion-tab-button class ="text-btn" style = "background:#ff4a62" tab="delete-event">Delete Event</ion-tab-button></ion-button>
     </div>
 
     <ion-row class = "justify-content-center " style="margin-top: 7%;">
@@ -74,9 +78,9 @@
       <ion-label>
         <ion-row class = "align-items-center">
           <ion-col>
-            <h2>{{lastTicket.event.name}}</h2>
-            <h3>{{lastTicket.event.dateTime}} <span style="color: limegreen; margin-left: 4%;">{{lastTicket.event.price}}$</span></h3>
-            <p><span style="color: rgb(11, 154, 211);">{{lastTicket.event.type}}</span></p>
+            <h2>{{lastTicketName}}</h2>
+            <h3>{{lastTicketDateTime}} <span style="color: limegreen; margin-left: 4%;">{{lastTicketPrice}}$</span></h3>
+            <p><span style="color: rgb(11, 154, 211);">{{lastTicketType}}</span></p>
           </ion-col>
         </ion-row>
       </ion-label>

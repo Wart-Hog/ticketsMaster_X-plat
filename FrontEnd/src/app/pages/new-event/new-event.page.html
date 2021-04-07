@@ -5,14 +5,14 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-tab-button>
     </ion-buttons>
+    <ion-title>Crea Nuovo Evento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="form_main">
-      <h4 class="heading"><strong>Crea Nuovo Evento</strong></h4>
+  <div class="login-container">
     <div class="form">
-      <form>
+      <form class="login-form-1">
           <input type="text" required="" placeholder="Nome evento" value="" name="eventName" class="txt"  [(ngModel)] = "eventName">
           <input type="text" required="" placeholder="Luogo" value="" name="place" class="txt" [(ngModel)] = "place">
           <input type="text" required="" placeholder="Prezzo" value="" name="email" class="txt" [(ngModel)] = "price">
@@ -21,9 +21,9 @@
               <option value="theatre">Teatro</option>
               <option value="sport">Sport</option>
           </select>
-          <input name="dateTime" type="date" data-date-format="dd/mm/yyyy" [(ngModel)] = "dateTime">
+          <input style="margin-top: 5%;" name="dateTime" type="date" data-date-format="dd/mm/yyyy" [(ngModel)] = "dateTime">
           <p class="text-danger">{{errorEventMessage}}</p>
-          <input type="submit" value="crea" name="submit" class="txt2"  (click) = "createEvent()">
+          <input type="submit" value="Crea" name="submit" class="btnSubmit"  (click) = "createEvent()">
       </form>
     </div>
   </div>

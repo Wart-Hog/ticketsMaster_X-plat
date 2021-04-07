@@ -14,22 +14,15 @@ export class UserPage implements OnInit {
   user!:IUser 
   tickets:ITicket[] = []
   favorites:IEvent[] = []
-  usernameToPromove = ""
   lastTicket!:ITicket
+  lastTicketName = ""
+  lastTicketDateTime = ""
+  lastTicketType = ""
+  lastTicketPrice = 0
   admin = false
-  name = ""
-  eventName = ""
   username = ""
-  type = ""
-  place = ""
-  dateTime =""
-  price: any
-  eventId = ""
   numberOfTickets = 0
   numberOfFavorites = 0
-  errorEventMessage = ""
-  errorModifyAdmin = ""
-  errorDeleteEvent = ""
   public isLogged = false
   signUpVisible: boolean
   constructor(private loginService: LoginService,private userService: UserService, private eventService:EventService) { }
@@ -46,6 +39,10 @@ export class UserPage implements OnInit {
         this.numberOfTickets = this.tickets.length
         this.numberOfFavorites = this.favorites.length
         this.lastTicket = this.tickets[this.tickets.length - 1]
+        this.lastTicketName = this.tickets[this.tickets.length - 1].event.name
+        this.lastTicketDateTime = this.tickets[this.tickets.length - 1].event.dateTime
+        this.lastTicketPrice = this.tickets[this.tickets.length - 1].event.price
+        this.lastTicketType = this.tickets[this.tickets.length - 1].event.type
       }
       
     }catch(err){
@@ -86,7 +83,7 @@ export class UserPage implements OnInit {
     sessionStorage.clear()
     window.location.reload()
   }
-
+/* 
   removeTicket = async (i:number) =>{
     try{
       sessionStorage.setItem("ticketID", this.tickets[i].id)
@@ -127,7 +124,7 @@ export class UserPage implements OnInit {
   changeDataFormat =() =>{
     let newDate = this.dateTime.split("-")
     this.dateTime =  newDate[2] + "-" + newDate[1] + "-" + newDate[0]
-  }
+  } */
   
 
 }
