@@ -5,17 +5,6 @@
     "password": "pincpall",
     "tickets": [
       {
-        "id": "6e47daf4-e621-476e-b813-1fef795eb43a",
-        "event": {
-          "name": "Notre dame de Paris",
-          "id": "90d02608-090d-4730-b265-d79f97c1ea06",
-          "type": "theatre",
-          "place": "milan",
-          "dateTime": "03/07/90",
-          "price": 60
-        }
-      },
-      {
         "id": "4cc2c39c-4f7a-4460-836f-9fbf7bc1546b",
         "event": {
           "name": "Motorhead",
@@ -62,14 +51,6 @@
     ],
     "favorites": [
       {
-        "name": "milan - juve",
-        "id": "54b49edf-3bd5-4af9-8317-7d74a1a8a174",
-        "type": "sport",
-        "place": "milan",
-        "dateTime": "03/07/90",
-        "price": 30
-      },
-      {
         "name": "Motorhead",
         "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
         "type": "music",
@@ -92,9 +73,17 @@
         "place": "Tunnicieddu",
         "dateTime": "29-04-2021",
         "price": "7"
+      },
+      {
+        "name": "Juventus - Milan",
+        "id": "1c42326c-65e9-4ee4-a948-91345c5e1dbc",
+        "type": "sport",
+        "place": "Torino",
+        "dateTime": "28-02-2021",
+        "price": "50"
       }
     ],
-    "token": "8KeLUgFhPP9xVVS3hxXSB5",
+    "token": "VoF8zq4xVYUmkuY2Tv9xsN",
     "admin": true
   },
   {

@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>events</ion-title>
+    <ion-title>Eventi</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-row class= "justify-content-center">
+  <ion-row class= "justify-content-center" style="margin-top: 3%;">
     <app-music (music) = "getFromInput($event)" [selected] = "selected[0].value"></app-music>
     <app-theatre (theatre) = "getFromInput($event)" [selected] = "selected[1].value"></app-theatre>
     <app-sport (sport) = "getFromInput($event)" [selected] = "selected[2].value"></app-sport>
@@ -15,13 +15,17 @@
         <ion-img *ngIf = "e.type == 'music'" [src]="images.music[i]"></ion-img>
         <ion-img *ngIf = "e.type == 'theatre'" [src]="images.theatre[i]"></ion-img>
         <ion-img *ngIf = "e.type == 'sport'" [src]="images.sport[i]"></ion-img>
-      <ion-card-subtitle>{{e.dateTime}}</ion-card-subtitle>
-      <ion-card-title>{{e.name}}</ion-card-title>
+      <ion-card-subtitle style="margin-top: 4%;">{{e.dateTime}}</ion-card-subtitle>
+      <ion-card-title>{{e.name | titlecase}}
+         <ion-chip style="color: green; font-size: small; background-color: white;">{{e.price}},99$</ion-chip>
+      </ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
       Keep close to Nature's heart... and break clear away, once in awhile,
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <br><br>
+      <span style="color: white;">Luogo: {{e.place | titlecase}}</span>
     </ion-card-content>
     <ion-card-content>
       <ion-button *ngIf = "isLogged" (click)='buyTicket(i)' fill = "clear"><ion-icon size="large" name="cart-outline"></ion-icon></ion-button>

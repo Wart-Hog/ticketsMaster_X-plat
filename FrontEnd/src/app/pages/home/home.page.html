@@ -1,14 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 <!-- <h5 *ngFor = "let e of events">{{e.name | titlecase}}</h5> -->
+
 <ion-content>
+  <h1 style="padding-left: 5%;">Ultimi Eventi</h1>
   <ion-card *ngFor = "let e of events; let i = index">
     <ion-card-header>
       <ion-card-subtitle>{{e.dateTime}}</ion-card-subtitle>
-      <ion-card-title>{{e.name}}</ion-card-title>
+      <ion-card-title>{{e.name | titlecase}}
+        <ion-chip style="color: green; font-size: small;">{{e.price}},99$</ion-chip>
+     </ion-card-title>
     </ion-card-header>
   
     <ion-card-content>

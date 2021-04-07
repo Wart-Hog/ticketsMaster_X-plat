@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>favorites</ion-title>
+    <ion-title>Preferiti</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,23 +11,30 @@
     </ion-tab-button> 
   </ion-content>
   <ion-list>
-    <ion-item *ngFor = "let f of favorites; let i = index">
-      <ion-avatar slot="start">
-        <img src="https://news.theregistrysf.com/wp-content/uploads/2018/06/ticket-512.png">
-      </ion-avatar>
-      <ion-label>
-        <ion-row class = "align-items-center">
-          <ion-col>
-            <h2>{{f.name}}</h2>
-            <h3>{{f.dateTime}} {{f.price}}$</h3>
-            <p>{{f.type}}</p>
-          </ion-col>
-          <ion-col>
-            <ion-button fill = "clear" (click) = "deleteFavorite(i)"><ion-icon color = "danger" name="trash-outline"></ion-icon></ion-button>
-          </ion-col>
-        </ion-row>
-        
-      </ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor = "let f of favorites; let i = index">
+      <ion-item-options side="end">
+        <ion-item-option color= "danger" (click)="deleteFavorite(i)">Elimina</ion-item-option>
+      </ion-item-options>
+  
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://news.theregistrysf.com/wp-content/uploads/2018/06/ticket-512.png">
+        </ion-avatar>
+        <ion-label>
+          <ion-row class = "align-items-center justify-content-end">
+            <ion-col>
+              <h2>{{f.name | titlecase}}</h2>
+              <h3>{{f.dateTime}} <span style= "color: green;">{{f.price}}$</span></h3>
+              <p style="color: grey;">{{f.type | titlecase}}</p>
+            </ion-col>
+            <ion-col>
+              <h4 style="color:lightskyblue ;">{{f.place | titlecase}}</h4>
+            </ion-col>
+          </ion-row>
+          
+        </ion-label>
+      </ion-item>
+      
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
