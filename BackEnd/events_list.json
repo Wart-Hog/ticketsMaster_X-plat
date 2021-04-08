@@ -102,5 +102,21 @@
     "place": "Tunnicieddu",
     "dateTime": "29-04-2021",
     "price": "7"
+  },
+  {
+    "name": "Miami Heat - Chicago Bulls",
+    "id": "d67c331b-52a7-4e9e-b8d2-e7b7600a448f",
+    "type": "sport",
+    "place": "Miami",
+    "dateTime": "16-04-2021",
+    "price": "70"
+  },
+  {
+    "name": "Fabrizio Moro",
+    "id": "536d901a-2d5e-43b0-b6ca-808df26b909e",
+    "type": "music",
+    "place": "Bari",
+    "dateTime": "01-05-2021",
+    "price": "39"
   }
 ]

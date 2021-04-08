@@ -10,13 +10,23 @@ import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public events : IEvent[] = []
+  public events : IEvent[]
+  twoEvents: IEvent[]
+  place = ""
+
   isLogged = true
   constructor(private eventService: EventService,private userService: UserService,public toastController: ToastController) { }
   
+  async ionViewWillEnter(){
+    
+  }
+
   async ngOnInit() {
     try{
       this.events = await this.eventService.all(0, 50)
+      this.place = this.events[0].place
+      this.twoEvents = [this.events[0], this.events[1]]
+      console.log(this.twoEvents)
     }catch(err){
       return err
     }

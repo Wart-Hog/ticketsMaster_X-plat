@@ -10,7 +10,7 @@
     <app-theatre (theatre) = "getFromInput($event)" [selected] = "selected[1].value"></app-theatre>
     <app-sport (sport) = "getFromInput($event)" [selected] = "selected[2].value"></app-sport>
   </ion-row>  
-  <ion-card *ngFor = "let e of getEvents; let i = index">
+  <ion-card *ngFor = "let e of getEvents; let i = index" class ="my-card">
     <ion-card-header>
         <ion-img *ngIf = "e.type == 'music'" [src]="images.music[i]"></ion-img>
         <ion-img *ngIf = "e.type == 'theatre'" [src]="images.theatre[i]"></ion-img>

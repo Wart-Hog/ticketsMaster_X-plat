@@ -5,17 +5,6 @@
     "password": "pincpall",
     "tickets": [
       {
-        "id": "4cc2c39c-4f7a-4460-836f-9fbf7bc1546b",
-        "event": {
-          "name": "Motorhead",
-          "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
-          "type": "music",
-          "place": "milan",
-          "dateTime": "03/07/90",
-          "price": 40
-        }
-      },
-      {
         "id": "1c9f6f38-2cdb-4245-ba40-5f48b89c825e",
         "event": {
           "name": "milan - juve",
@@ -47,17 +36,20 @@
           "dateTime": "02/07/2022",
           "price": "80"
         }
+      },
+      {
+        "id": "1d74320b-6081-408c-8fad-f5dd0b0baea6",
+        "event": {
+          "name": "Motorhead",
+          "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
+          "type": "music",
+          "place": "milan",
+          "dateTime": "03/07/90",
+          "price": 40
+        }
       }
     ],
     "favorites": [
-      {
-        "name": "Motorhead",
-        "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
-        "type": "music",
-        "place": "milan",
-        "dateTime": "03/07/90",
-        "price": 40
-      },
       {
         "name": "Notre dame de Paris",
         "id": "90d02608-090d-4730-b265-d79f97c1ea06",
@@ -81,9 +73,25 @@
         "place": "Torino",
         "dateTime": "28-02-2021",
         "price": "50"
+      },
+      {
+        "name": "Motorhead",
+        "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
+        "type": "music",
+        "place": "milan",
+        "dateTime": "03/07/90",
+        "price": 40
+      },
+      {
+        "name": "Motorhead",
+        "id": "beda3f20-4321-4cd9-a969-b89c9969149f",
+        "type": "music",
+        "place": "milan",
+        "dateTime": "03/07/90",
+        "price": 40
       }
     ],
-    "token": "VoF8zq4xVYUmkuY2Tv9xsN",
+    "token": "2rou5BvyEgQZpYTdkfGgmg",
     "admin": true
   },
   {
