@@ -22,6 +22,7 @@ export class EditUserPage implements OnInit {
         this.user = await this.loginService.getUser()
         this.username = this.user.username
         this.name = this.user.name
+        this.password = this.user.password
     }catch(err){
       return err
     }

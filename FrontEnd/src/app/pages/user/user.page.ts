@@ -21,6 +21,7 @@ export class UserPage implements OnInit {
   lastTicketPrice = 0
   admin = false
   username = ""
+  name = ""
   numberOfTickets = 0
   numberOfFavorites = 0
   public isLogged = false
@@ -35,6 +36,7 @@ export class UserPage implements OnInit {
         this.tickets = await this.userService.myTickets()
         this.favorites = await this.userService.getFavorites()
         this.admin = this.user.admin
+        this.name = this.user.name
         this.username = this.user.username
         this.numberOfTickets = this.tickets.length
         this.numberOfFavorites = this.favorites.length
