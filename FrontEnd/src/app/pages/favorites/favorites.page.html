@@ -10,13 +10,13 @@
       Loggati per vedere i tuoi preferiti
     </ion-tab-button> 
   </ion-content>
-  <ion-list>
-    <ion-item-sliding *ngFor = "let f of favorites; let i = index">
-      <ion-item-options side="end">
+  <div style="margin-top: 5%;">
+    <ion-item-sliding *ngFor = "let f of favorites; let i = index" style="margin-bottom: 2%; padding: 2% 5%; ">
+      <ion-item-options side="end"  style=" padding: 2% 5%;">
         <ion-item-option color= "danger" (click)="deleteFavorite(i)">Elimina</ion-item-option>
       </ion-item-options>
   
-      <ion-item>
+      <ion-item >
         <ion-avatar slot="start">
           <img src="https://news.theregistrysf.com/wp-content/uploads/2018/06/ticket-512.png">
         </ion-avatar>
@@ -36,5 +36,5 @@
       </ion-item>
       
     </ion-item-sliding>
-  </ion-list>
+  </div>
 </ion-content>

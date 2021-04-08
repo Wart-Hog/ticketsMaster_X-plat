@@ -12,24 +12,26 @@ import { IEvent } from '../../../../../BackEnd/src/Interfaces/IEvent';
 export class HomePage implements OnInit {
   public events : IEvent[]
   twoEvents: IEvent[]
-  place = ""
+  place1 = ""
+  place2 = ""
 
   isLogged = true
   constructor(private eventService: EventService,private userService: UserService,public toastController: ToastController) { }
   
   async ionViewWillEnter(){
-    
-  }
-
-  async ngOnInit() {
     try{
       this.events = await this.eventService.all(0, 50)
-      this.place = this.events[0].place
-      this.twoEvents = [this.events[0], this.events[1]]
-      console.log(this.twoEvents)
+      this.twoEvents = [this.events[Math.floor(Math.random() * this.events.length)], this.events[Math.floor(Math.random() * this.events.length)]]
+      this.place1 = this.twoEvents[0].place
+      this.place2 = this.twoEvents[1].place
+      
     }catch(err){
       return err
     }
+  }
+
+  async ngOnInit() {
+    
   }
   ////.-----!!!! aggiungere pop up per acquisto effettuato
   buyTicket = async (i:number) =>{
