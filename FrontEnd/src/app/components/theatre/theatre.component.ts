@@ -23,12 +23,7 @@ export class TheatreComponent implements OnInit {
 }
 
   async ngOnInit() {
-    // try{
-    //   this.events = await this.eventService.getTheatreEvents()
-    //   this.checkLogged()
-    // }catch(error){
-    //   return error
-    // }
+    
   }
 
   getTheatre = () =>{

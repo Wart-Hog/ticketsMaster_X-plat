@@ -23,12 +23,7 @@ export class SportComponent implements OnInit {
 }
 
   async ngOnInit() {
-    // try{
-    //   this.events = await this.eventService.getSportEvents()
-    //   this.checkLogged()
-    // }catch(error){
-    //   return error
-    // }
+    
   }
 
   getSport = () =>{

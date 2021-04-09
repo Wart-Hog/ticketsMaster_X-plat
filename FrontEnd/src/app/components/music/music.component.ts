@@ -25,12 +25,7 @@ export class MusicComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // try{
-    //   this.events = await this.eventService.getMusicEvents()
-    //   this.checkLogged()
-    // }catch(error){
-    //   return error
-    // }
+    
   }
 
   getMusic = () =>{
