@@ -64,26 +64,10 @@
     "price": "40"
   },
   {
-    "name": "prova1",
-    "id": "09945054-57d9-40f9-86f2-0c1336a2b279",
-    "type": "theatre",
-    "place": "provaluoigo",
-    "dateTime": "09-04-2021",
-    "price": "30"
-  },
-  {
-    "name": "aa",
-    "id": "4cae20f6-edd4-409e-bc1c-ddfdf38001d4",
-    "type": "music",
-    "place": "aaa",
-    "dateTime": "09-04-2021",
-    "price": "34"
-  },
-  {
-    "name": "dd",
+    "name": "ozora",
     "id": "b6d1c46b-579f-4557-be13-683b3b0aa8cc",
     "type": "music",
-    "place": "dd",
+    "place": "budapest",
     "dateTime": "16-04-2021",
     "price": "30"
   },

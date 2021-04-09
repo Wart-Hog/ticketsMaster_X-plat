@@ -15,7 +15,6 @@ export class NewEventPage implements OnInit {
   dateTime =""
   price: any
   errorEventMessage = ""
-  //errorDeleteEvent = ""
   constructor(private eventService:EventService, private dataSharingService: DataSharingService,public toastController: ToastController) { }
 
   ngOnInit() {}
@@ -25,7 +24,6 @@ export class NewEventPage implements OnInit {
       await this.eventService.newEvent(this.eventName, this.type, this.place, this.dateTime, this.price)
       this.dataSharingService.changes.next(true);
       this.createdToast()
-      //window.location.replace('http://localhost:4200')  
     }catch(error: any){
       this.errorEventMessage="dati errati"
       return

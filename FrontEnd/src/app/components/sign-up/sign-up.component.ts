@@ -13,9 +13,7 @@ export class SignUpComponent implements OnInit {
   public errorMessage = ""
   private formSubmitAttempt: boolean;
 
-  constructor(private userService: UserService,private formBuilder: FormBuilder) { 
-    
-  }
+  constructor(private userService: UserService,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.form= this.formBuilder.group({
@@ -39,32 +37,28 @@ export class SignUpComponent implements OnInit {
   signup = async (name,username,password) => {
     try{
       await this.userService.signup(name,username,password)
-      //window.location.replace("http://localhost:4200/login")
     }catch(error: any){
       this.errorMessage="password must be 6 char long, username must be unique"
       return
     }
   }
-  validateAllFormFields(formGroup: FormGroup) {         //{1}
-    Object.keys(formGroup.controls).forEach(field => {  //{2}
-      const control = formGroup.get(field);             //{3}
-      if (control instanceof FormControl) {             //{4}
+  validateAllFormFields(formGroup: FormGroup) {       
+    Object.keys(formGroup.controls).forEach(field => {  
+      const control = formGroup.get(field);             
+      if (control instanceof FormControl) {             
         control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {        //{5}
-        this.validateAllFormFields(control);            //{6}
+      } else if (control instanceof FormGroup) {        
+        this.validateAllFormFields(control);           
       }
-    });
+    })
   }
   onSubmit(form:any){
     this.formSubmitAttempt = true
     if (this.form.valid) {
       console.log('form submitted');
       this.signup(form.name,form.username,form.password)
-
     } else {
-      this.validateAllFormFields(this.form); //{7}
+      this.validateAllFormFields(this.form); 
     }
   }
-
-
 }
